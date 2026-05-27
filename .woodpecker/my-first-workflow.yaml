@@ -1,0 +1,15 @@
+when:
+  - event: push
+    branch: main
+ 
+steps:
+  - name: build
+    image: debian
+    commands:
+      - echo "模拟构建过程"
+      - echo "binary-data-123" > executable
+  - name: test
+    image: goland:1.16
+    commands:
+      - echo "开始测试"
+      - ./executable
